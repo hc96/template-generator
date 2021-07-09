@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:stars="https://some-company/schema/bpmn/stars" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" name="StartBlock" scenarioName="SCC_Peer Feedback" scenarioDate="2021-06-18T09:20">
+      <bpmn2:outgoing>SequenceFlow_04rapkn</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <stars:andFork id="AndFork_07fxyu7">
+      <bpmn2:incoming>SequenceFlow_04rapkn</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1vzi9t6</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_1hpeo52</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_1yfmiy8</bpmn2:outgoing>
+    </stars:andFork>
+    <stars:andFork id="AndFork_1i54whh">
+      <bpmn2:incoming>SequenceFlow_17wmzy1</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_0iudnno</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_1xef19c</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1csuy5x</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_0v4e0t4</bpmn2:outgoing>
+    </stars:andFork>
+    <stars:andFork id="AndFork_1ge1aae">
+      <bpmn2:incoming>SequenceFlow_06e10qf</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_0ui3qy3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0rc6fds</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_0bz8rnq</bpmn2:outgoing>
+    </stars:andFork>
+    <bpmn2:sequenceFlow id="SequenceFlow_04rapkn" sourceRef="StartEvent_1" targetRef="AndFork_07fxyu7"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1vzi9t6" sourceRef="AndFork_07fxyu7" targetRef="SurveyQuestion_1b6lgtc"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1hpeo52" sourceRef="AndFork_07fxyu7" targetRef="PeerInteraction_1u6rk55"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_17wmzy1" sourceRef="PeerInteraction_1u6rk55" targetRef="AndFork_1i54whh"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0iudnno" sourceRef="SurveyQuestion_1b6lgtc" targetRef="AndFork_1i54whh"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1csuy5x" sourceRef="AndFork_1i54whh" targetRef="PeerInteraction_0fuotkb"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0v4e0t4" sourceRef="AndFork_1i54whh" targetRef="SurveyQuestion_09nzrnl"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_06e10qf" sourceRef="SurveyQuestion_09nzrnl" targetRef="AndFork_1ge1aae"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0ui3qy3" sourceRef="PeerInteraction_0fuotkb" targetRef="AndFork_1ge1aae"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0rc6fds" sourceRef="AndFork_1ge1aae" targetRef="PeerInteraction_0pykb1b"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0bz8rnq" sourceRef="AndFork_1ge1aae" targetRef="PeerInteraction_11llyfs"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_178376c" sourceRef="PeerInteraction_11llyfs" targetRef="EndEvent_0k1gs6g"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1lu4xzz" sourceRef="PeerInteraction_0pykb1b" targetRef="EndEvent_0k1gs6g"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1yfmiy8" sourceRef="AndFork_07fxyu7" targetRef="PresentMaterial_1i9c7ip"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1xef19c" sourceRef="PresentMaterial_1i9c7ip" targetRef="AndFork_1i54whh"/>
+    <stars:fileUploadSurveyQuestion id="SurveyQuestion_1b6lgtc" name="FileUploadSurveyQuestion (Upload)" questionText="Bitte laden Sie die Datei Ihres Seminar-Papers hoch und bestätigen Sie dies durch Klick auf &quot;Answer&quot;." isAnswerChangeable="true">
+      <bpmn2:incoming>SequenceFlow_1vzi9t6</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0iudnno</bpmn2:outgoing>
+    </stars:fileUploadSurveyQuestion>
+    <stars:fileUploadSurveyQuestion id="SurveyQuestion_09nzrnl" name="FileUploadSurveyQuestion (Bewertung)" questionText="Bitte laden Sie sich das Seminar-Paper Ihres Kommilitonen herunter, erstellen dafür ein Review und laden dieses hier hoch." isAnswerChangeable="true" peerBuilder="PeerInteraction_1u6rk55">
+      <bpmn2:incoming>SequenceFlow_0v4e0t4</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_06e10qf</bpmn2:outgoing>
+    </stars:fileUploadSurveyQuestion>
+    <stars:peerBuilder id="PeerInteraction_1u6rk55" name="PeerBuilder" questions="SurveyQuestion_1b6lgtc">
+      <bpmn2:incoming>SequenceFlow_1hpeo52</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_17wmzy1</bpmn2:outgoing>
+    </stars:peerBuilder>
+    <stars:presentPeerAnswers id="PeerInteraction_0fuotkb" name="PresentPeerAnswers" peerBuilder="PeerInteraction_1u6rk55">
+      <bpmn2:incoming>SequenceFlow_1csuy5x</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0ui3qy3</bpmn2:outgoing>
+    </stars:presentPeerAnswers>
+    <stars:presentPeerFeedback id="PeerInteraction_0pykb1b" name="PresentPeerFeedback" peerBuilder="PeerInteraction_1u6rk55">
+      <bpmn2:incoming>SequenceFlow_0rc6fds</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1lu4xzz</bpmn2:outgoing>
+    </stars:presentPeerFeedback>
+    <stars:peerChat id="PeerInteraction_11llyfs" name="PeerChat" task="Sofern Sie Fragen zu Ihrem erhaltenen Review haben, können Sie diese hier an den Ersteller des Reviews richten." peerBuilder="PeerInteraction_1u6rk55">
+      <bpmn2:incoming>SequenceFlow_0bz8rnq</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_178376c</bpmn2:outgoing>
+    </stars:peerChat>
+    <bpmn2:endEvent id="EndEvent_0k1gs6g" name="EndBlock">
+      <bpmn2:incoming>SequenceFlow_178376c</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_1lu4xzz</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <stars:presentMaterial id="PresentMaterial_1i9c7ip" name="PresentMaterial" content="Nachdem Sie Ihre Datei hochgeladen haben, überprüfen Sie bitte unten, ob Sie der Teilnahme am Peer-Feedback zugestimmt haben (*Acknowledge*). Im Regelfall wird dies nach dem Datei-Upload automatisch durchgeführt.">
+      <bpmn2:incoming>SequenceFlow_1yfmiy8</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1xef19c</bpmn2:outgoing>
+    </stars:presentMaterial>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="-408" y="192" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-414" y="235" width="51" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="AndFork_07fxyu7_di" bpmnElement="AndFork_07fxyu7">
+        <dc:Bounds x="-310" y="170" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-220" y="200" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="FileUploadSurveyQuestion_02o7scp_di" bpmnElement="SurveyQuestion_1b6lgtc">
+        <dc:Bounds x="-185" y="15" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-194" y="92" width="90" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PeerBuilder_00lkru7_di" bpmnElement="PeerInteraction_1u6rk55">
+        <dc:Bounds x="-190" y="330" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-179" y="417" width="58" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="AndFork_1i54whh_di" bpmnElement="AndFork_1i54whh">
+        <dc:Bounds x="-10" y="170" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="80" y="200" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PresentPeerAnswers_1i908a8_di" bpmnElement="PeerInteraction_0fuotkb">
+        <dc:Bounds x="95" y="50" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="96" y="137" width="79" height="34"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="FileUploadSurveyQuestion_06ptgd3_di" bpmnElement="SurveyQuestion_09nzrnl">
+        <dc:Bounds x="100" y="295" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="92" y="372" width="87" height="40"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="AndFork_1ge1aae_di" bpmnElement="AndFork_1ge1aae">
+        <dc:Bounds x="280" y="170" width="80" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PresentPeerFeedback_1no3x9e_di" bpmnElement="PeerInteraction_0pykb1b">
+        <dc:Bounds x="392" y="50" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="393" y="137" width="79" height="34"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PeerChat_15g3z44_di" bpmnElement="PeerInteraction_11llyfs">
+        <dc:Bounds x="392" y="290" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="409" y="377" width="47" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0k1gs6g_di" bpmnElement="EndEvent_0k1gs6g">
+        <dc:Bounds x="572" y="192" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="560" y="235" width="60" height="17"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PresentMaterial_1i9c7ip_di" bpmnElement="PresentMaterial_1i9c7ip">
+        <dc:Bounds x="-190" y="170" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-189" y="257" width="78" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_04rapkn_di" bpmnElement="SequenceFlow_04rapkn">
+        <di:waypoint x="-372" y="210"/>
+        <di:waypoint x="-310" y="210"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1vzi9t6_di" bpmnElement="SequenceFlow_1vzi9t6">
+        <di:waypoint x="-270" y="170"/>
+        <di:waypoint x="-270" y="50"/>
+        <di:waypoint x="-185" y="50"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-300" y="100" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1hpeo52_di" bpmnElement="SequenceFlow_1hpeo52">
+        <di:waypoint x="-270" y="250"/>
+        <di:waypoint x="-270" y="370"/>
+        <di:waypoint x="-190" y="370"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-300" y="300" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_17wmzy1_di" bpmnElement="SequenceFlow_17wmzy1">
+        <di:waypoint x="-110" y="370"/>
+        <di:waypoint x="-60" y="370"/>
+        <di:waypoint x="-60" y="210"/>
+        <di:waypoint x="-10" y="210"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-90" y="280" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0iudnno_di" bpmnElement="SequenceFlow_0iudnno">
+        <di:waypoint x="-115" y="50"/>
+        <di:waypoint x="-60" y="50"/>
+        <di:waypoint x="-60" y="210"/>
+        <di:waypoint x="-10" y="210"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-90" y="120" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1csuy5x_di" bpmnElement="SequenceFlow_1csuy5x">
+        <di:waypoint x="30" y="170"/>
+        <di:waypoint x="30" y="90"/>
+        <di:waypoint x="95" y="90"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0v4e0t4_di" bpmnElement="SequenceFlow_0v4e0t4">
+        <di:waypoint x="30" y="250"/>
+        <di:waypoint x="30" y="330"/>
+        <di:waypoint x="100" y="330"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_06e10qf_di" bpmnElement="SequenceFlow_06e10qf">
+        <di:waypoint x="170" y="330"/>
+        <di:waypoint x="230" y="330"/>
+        <di:waypoint x="230" y="210"/>
+        <di:waypoint x="280" y="210"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ui3qy3_di" bpmnElement="SequenceFlow_0ui3qy3">
+        <di:waypoint x="175" y="90"/>
+        <di:waypoint x="230" y="90"/>
+        <di:waypoint x="230" y="210"/>
+        <di:waypoint x="280" y="210"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0rc6fds_di" bpmnElement="SequenceFlow_0rc6fds">
+        <di:waypoint x="320" y="170"/>
+        <di:waypoint x="320" y="90"/>
+        <di:waypoint x="392" y="90"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0bz8rnq_di" bpmnElement="SequenceFlow_0bz8rnq">
+        <di:waypoint x="320" y="250"/>
+        <di:waypoint x="320" y="330"/>
+        <di:waypoint x="392" y="330"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_178376c_di" bpmnElement="SequenceFlow_178376c">
+        <di:waypoint x="472" y="330"/>
+        <di:waypoint x="520" y="330"/>
+        <di:waypoint x="520" y="210"/>
+        <di:waypoint x="572" y="210"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1lu4xzz_di" bpmnElement="SequenceFlow_1lu4xzz">
+        <di:waypoint x="472" y="90"/>
+        <di:waypoint x="520" y="90"/>
+        <di:waypoint x="520" y="210"/>
+        <di:waypoint x="572" y="210"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1yfmiy8_di" bpmnElement="SequenceFlow_1yfmiy8">
+        <di:waypoint x="-230" y="210"/>
+        <di:waypoint x="-190" y="210"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-255" y="185" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1xef19c_di" bpmnElement="SequenceFlow_1xef19c">
+        <di:waypoint x="-110" y="210"/>
+        <di:waypoint x="-10" y="210"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-105" y="185" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

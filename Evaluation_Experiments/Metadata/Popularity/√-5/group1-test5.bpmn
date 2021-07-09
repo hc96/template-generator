@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:stars="https://some-company/schema/bpmn/stars" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" name="StartBlock" scenarioName="test5">
+      <bpmn2:outgoing>SequenceFlow_1vi1074</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <stars:lectureBlock id="LectureBlock_0dffsfx" name="LectureBlock">
+      <bpmn2:incoming>SequenceFlow_1vi1074</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_05086fx</bpmn2:outgoing>
+    </stars:lectureBlock>
+    <bpmn2:sequenceFlow id="SequenceFlow_1vi1074" sourceRef="StartEvent_1" targetRef="LectureBlock_0dffsfx"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_05086fx" sourceRef="LectureBlock_0dffsfx" targetRef="LearningQuestion_1eg81zy"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1reholy" sourceRef="LearningQuestion_1eg81zy" targetRef="PauseBlock_1knvgni"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0ewouhp" sourceRef="PauseBlock_1knvgni" targetRef="PresentResult_11revwd"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_01mlisu" sourceRef="PresentResult_11revwd" targetRef="SubProcess_b36b9771-9904-4844-95d9-0117e2d971bf"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1wt2shf" sourceRef="SubProcess_b36b9771-9904-4844-95d9-0117e2d971bf" targetRef="EndEvent_1wktcq6"/>
+    <stars:pauseBlock id="PauseBlock_1knvgni" name="PauseBlock">
+      <bpmn2:incoming>SequenceFlow_1reholy</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0ewouhp</bpmn2:outgoing>
+    </stars:pauseBlock>
+    <stars:presentResult id="PresentResult_11revwd" name="PresentResult" functionBlocks="LearningQuestion_1eg81zy">
+      <bpmn2:incoming>SequenceFlow_0ewouhp</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_01mlisu</bpmn2:outgoing>
+    </stars:presentResult>
+    <stars:singleChoiceLearningQuestion id="LearningQuestion_1eg81zy" name="SingleChoiceLearningQuestion" choices="[{&quot;choiceID&quot;:&quot;00001_MC4zNTg1NjA0&quot;,&quot;choiceText&quot;:&quot;&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00002_MC43NDE3MzY3&quot;,&quot;choiceText&quot;:&quot;&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;}]">
+      <bpmn2:incoming>SequenceFlow_05086fx</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1reholy</bpmn2:outgoing>
+    </stars:singleChoiceLearningQuestion>
+    <bpmn2:endEvent id="EndEvent_1wktcq6" name="EndBlock">
+      <bpmn2:incoming>SequenceFlow_1wt2shf</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:subProcess id="SubProcess_b36b9771-9904-4844-95d9-0117e2d971bf" name="test" isExecutable="false" isExpanded="true">
+      <bpmn2:incoming>SequenceFlow_01mlisu</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1wt2shf</bpmn2:outgoing>
+      <bpmn2:startEvent id="StartEvent_a876899d-0816-4927-aa33-b4231727c291" name="StartBlock II" scenarioName="test">
+        <bpmn2:outgoing>SequenceFlow_f6c399fa-2d61-4efc-972e-2feeb3237393</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <stars:pauseBlock id="PauseBlock_b395d18a-b60b-44fc-a0f2-1c98c85a0c60" name="PauseBlock IV">
+        <bpmn2:incoming>SequenceFlow_f6c399fa-2d61-4efc-972e-2feeb3237393</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_c23b43a0-b5c8-4c92-821e-213356b53bc4</bpmn2:outgoing>
+      </stars:pauseBlock>
+      <stars:pauseBlock id="PauseBlock_845c911a-7bc2-4cff-8f7a-f7e71ce4d9c5" name="PauseBlock V">
+        <bpmn2:incoming>SequenceFlow_fb436ff2-e9bb-4e8b-ae85-cf1622d7bcc7</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_2213d91e-0602-49e2-a123-c9c400c9a77d</bpmn2:outgoing>
+      </stars:pauseBlock>
+      <stars:pauseBlock id="PauseBlock_d6f35f24-e875-45db-81e7-3f3d655ffd89" name="PauseBlock VI">
+        <bpmn2:incoming>SequenceFlow_062247c2-0915-4ac0-aed5-17b488898dcb</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_fc5ad346-8abf-4507-83fb-35b378ba1364</bpmn2:outgoing>
+      </stars:pauseBlock>
+      <bpmn2:sequenceFlow id="SequenceFlow_f6c399fa-2d61-4efc-972e-2feeb3237393" sourceRef="StartEvent_a876899d-0816-4927-aa33-b4231727c291" targetRef="PauseBlock_b395d18a-b60b-44fc-a0f2-1c98c85a0c60"/>
+      <bpmn2:sequenceFlow id="SequenceFlow_c23b43a0-b5c8-4c92-821e-213356b53bc4" sourceRef="PauseBlock_b395d18a-b60b-44fc-a0f2-1c98c85a0c60" targetRef="SingleChoiceLearningQuestion_142735b2-673d-4b25-8261-f1dfb6877b41"/>
+      <bpmn2:sequenceFlow id="SequenceFlow_fc88e98d-0752-49b3-b705-b0ed9fcbf9e5" sourceRef="SingleChoiceLearningQuestion_142735b2-673d-4b25-8261-f1dfb6877b41" targetRef="OrFork_23a7bf02-b36c-481b-93d4-8a4c71f69023"/>
+      <bpmn2:sequenceFlow id="SequenceFlow_1f58847e-84c1-4595-941d-eceef3867420" sourceRef="OrFork_23a7bf02-b36c-481b-93d4-8a4c71f69023" targetRef="LectureBlock_4fdee848-8ffa-4d82-a69e-c216b344efeb"/>
+      <bpmn2:sequenceFlow id="SequenceFlow_fb436ff2-e9bb-4e8b-ae85-cf1622d7bcc7" sourceRef="SingleChoiceSurveyQuestion_dcf4146a-9cb3-4c50-b5eb-79a01c0519de" targetRef="PauseBlock_845c911a-7bc2-4cff-8f7a-f7e71ce4d9c5"/>
+      <bpmn2:sequenceFlow id="SequenceFlow_2213d91e-0602-49e2-a123-c9c400c9a77d" sourceRef="PauseBlock_845c911a-7bc2-4cff-8f7a-f7e71ce4d9c5" targetRef="EndEvent_f67e45e3-3cfb-4d8b-b98b-fdc8e0c5bb52"/>
+      <bpmn2:sequenceFlow id="SequenceFlow_fc5ad346-8abf-4507-83fb-35b378ba1364" sourceRef="PauseBlock_d6f35f24-e875-45db-81e7-3f3d655ffd89" targetRef="EndEvent_cf4b4e02-04fd-4903-9cfe-f554bb391bc7"/>
+      <bpmn2:sequenceFlow id="SequenceFlow_dd245f5b-c833-49a9-a5d2-d0997a4231f5" sourceRef="OrFork_23a7bf02-b36c-481b-93d4-8a4c71f69023" targetRef="SingleChoiceSurveyQuestion_dcf4146a-9cb3-4c50-b5eb-79a01c0519de"/>
+      <bpmn2:sequenceFlow id="SequenceFlow_062247c2-0915-4ac0-aed5-17b488898dcb" sourceRef="LectureBlock_4fdee848-8ffa-4d82-a69e-c216b344efeb" targetRef="PauseBlock_d6f35f24-e875-45db-81e7-3f3d655ffd89"/>
+      <stars:singleChoiceLearningQuestion id="SingleChoiceLearningQuestion_142735b2-673d-4b25-8261-f1dfb6877b41" name="SingleChoiceLearningQuestion II" choices="[{&quot;choiceID&quot;:&quot;00001_MC40NjE3NjM5&quot;,&quot;choiceText&quot;:&quot;&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00002_MC4zOTk2NTUw&quot;,&quot;choiceText&quot;:&quot;&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;}]">
+        <bpmn2:incoming>SequenceFlow_c23b43a0-b5c8-4c92-821e-213356b53bc4</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_fc88e98d-0752-49b3-b705-b0ed9fcbf9e5</bpmn2:outgoing>
+      </stars:singleChoiceLearningQuestion>
+      <stars:orFork id="OrFork_23a7bf02-b36c-481b-93d4-8a4c71f69023">
+        <bpmn2:incoming>SequenceFlow_fc88e98d-0752-49b3-b705-b0ed9fcbf9e5</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_1f58847e-84c1-4595-941d-eceef3867420</bpmn2:outgoing>
+        <bpmn2:outgoing>SequenceFlow_dd245f5b-c833-49a9-a5d2-d0997a4231f5</bpmn2:outgoing>
+      </stars:orFork>
+      <stars:lectureBlock id="LectureBlock_4fdee848-8ffa-4d82-a69e-c216b344efeb" name="LectureBlock II">
+        <bpmn2:incoming>SequenceFlow_1f58847e-84c1-4595-941d-eceef3867420</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_062247c2-0915-4ac0-aed5-17b488898dcb</bpmn2:outgoing>
+      </stars:lectureBlock>
+      <bpmn2:endEvent id="EndEvent_f67e45e3-3cfb-4d8b-b98b-fdc8e0c5bb52" name="EndBlock III">
+        <bpmn2:incoming>SequenceFlow_2213d91e-0602-49e2-a123-c9c400c9a77d</bpmn2:incoming>
+      </bpmn2:endEvent>
+      <bpmn2:endEvent id="EndEvent_cf4b4e02-04fd-4903-9cfe-f554bb391bc7" name="EndBlock IV">
+        <bpmn2:incoming>SequenceFlow_fc5ad346-8abf-4507-83fb-35b378ba1364</bpmn2:incoming>
+      </bpmn2:endEvent>
+      <stars:singleChoiceSurveyQuestion id="SingleChoiceSurveyQuestion_dcf4146a-9cb3-4c50-b5eb-79a01c0519de" name="SingleChoiceSurveyQuestion" choices="[{&quot;choiceID&quot;:&quot;00001_MC42MzE0ODUz&quot;,&quot;choiceText&quot;:&quot;&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00002_MC45NTk0ODk2&quot;,&quot;choiceText&quot;:&quot;&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;}]">
+        <bpmn2:incoming>SequenceFlow_dd245f5b-c833-49a9-a5d2-d0997a4231f5</bpmn2:incoming>
+        <bpmn2:outgoing>SequenceFlow_fb436ff2-e9bb-4e8b-ae85-cf1622d7bcc7</bpmn2:outgoing>
+      </stars:singleChoiceSurveyQuestion>
+    </bpmn2:subProcess>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="352" y="332" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="345" y="375" width="51" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="LectureBlock_0dffsfx_di" bpmnElement="LectureBlock_0dffsfx">
+        <dc:Bounds x="435" y="315" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="438" y="392" width="64" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PauseBlock_1knvgni_di" bpmnElement="PauseBlock_1knvgni">
+        <dc:Bounds x="695" y="315" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="701" y="392" width="59" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PresentResult_11revwd_di" bpmnElement="PresentResult_11revwd">
+        <dc:Bounds x="820" y="310" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="825" y="397" width="70" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SingleChoiceLearningQuestion_1v2dokr_di" bpmnElement="LearningQuestion_1eg81zy">
+        <dc:Bounds x="565" y="315" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="557" y="392" width="87" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1wktcq6_di" bpmnElement="EndEvent_1wktcq6">
+        <dc:Bounds x="1852" y="310" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1846" y="286" width="47" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_cb3a7806-0538-43d9-84e2-803f260908c7" bpmnElement="StartEvent_a876899d-0816-4927-aa33-b4231727c291">
+        <dc:Bounds x="992" y="245" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="981" y="288" width="60" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_dfdbb443-6c73-49d8-a214-aac312729c6a" bpmnElement="PauseBlock_b395d18a-b60b-44fc-a0f2-1c98c85a0c60">
+        <dc:Bounds x="1089" y="228" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1089" y="305" width="72" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_f7d590da-decb-41f9-85e8-219ebaf3a72f" bpmnElement="SingleChoiceLearningQuestion_142735b2-673d-4b25-8261-f1dfb6877b41">
+        <dc:Bounds x="1209" y="228" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1201" y="305" width="87" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_1b589d58-d3bd-48e3-8079-e711aa122a20" bpmnElement="OrFork_23a7bf02-b36c-481b-93d4-8a4c71f69023">
+        <dc:Bounds x="1324" y="223" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1319" y="193" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_80081d78-a2d3-4395-822d-b1c42116049b" bpmnElement="LectureBlock_4fdee848-8ffa-4d82-a69e-c216b344efeb">
+        <dc:Bounds x="1459" y="228" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1458" y="305" width="73" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_3ca4e901-fb36-4672-add9-8caee1af1571" bpmnElement="PauseBlock_845c911a-7bc2-4cff-8f7a-f7e71ce4d9c5">
+        <dc:Bounds x="1599" y="350" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1600" y="427" width="69" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_e540c1a9-05af-457a-85fe-ec92592eaa1c" bpmnElement="EndEvent_f67e45e3-3cfb-4d8b-b98b-fdc8e0c5bb52">
+        <dc:Bounds x="1726" y="367" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1715" y="410" width="59" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_19eb1217-59aa-4075-bc3d-fadcce637b5b" bpmnElement="SingleChoiceSurveyQuestion_dcf4146a-9cb3-4c50-b5eb-79a01c0519de">
+        <dc:Bounds x="1459" y="350" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1453" y="427" width="83" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_54f47526-c909-45bd-b9b6-1a0c39c03a13" bpmnElement="PauseBlock_d6f35f24-e875-45db-81e7-3f3d655ffd89">
+        <dc:Bounds x="1599" y="228" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1599" y="305" width="72" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_0d623d30-018c-4d47-af88-71e9a66ab145" bpmnElement="EndEvent_cf4b4e02-04fd-4903-9cfe-f554bb391bc7">
+        <dc:Bounds x="1726" y="245" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1714" y="288" width="60" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SubProcess_b36b9771-9904-4844-95d9-0117e2d971bf_di" bpmnElement="SubProcess_b36b9771-9904-4844-95d9-0117e2d971bf" isExpanded="true">
+        <dc:Bounds x="960" y="198" width="837" height="281"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1vi1074_di" bpmnElement="SequenceFlow_1vi1074">
+        <di:waypoint x="388" y="350"/>
+        <di:waypoint x="435" y="350"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_05086fx_di" bpmnElement="SequenceFlow_05086fx">
+        <di:waypoint x="505" y="350"/>
+        <di:waypoint x="565" y="350"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1reholy_di" bpmnElement="SequenceFlow_1reholy">
+        <di:waypoint x="635" y="350"/>
+        <di:waypoint x="695" y="350"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ewouhp_di" bpmnElement="SequenceFlow_0ewouhp">
+        <di:waypoint x="765" y="350"/>
+        <di:waypoint x="820" y="350"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_01mlisu_di" bpmnElement="SequenceFlow_01mlisu">
+        <di:waypoint x="900" y="350"/>
+        <di:waypoint x="930" y="350"/>
+        <di:waypoint x="930" y="349"/>
+        <di:waypoint x="960" y="349"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1051" y="163" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_f6c399fa-2d61-4efc-972e-2feeb3237393_di" bpmnElement="SequenceFlow_f6c399fa-2d61-4efc-972e-2feeb3237393">
+        <di:waypoint x="1028" y="263"/>
+        <di:waypoint x="1089" y="263"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1014" y="238" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_c23b43a0-b5c8-4c92-821e-213356b53bc4_di" bpmnElement="SequenceFlow_c23b43a0-b5c8-4c92-821e-213356b53bc4">
+        <di:waypoint x="1159" y="263"/>
+        <di:waypoint x="1209" y="263"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1139" y="238" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_fc88e98d-0752-49b3-b705-b0ed9fcbf9e5_di" bpmnElement="SequenceFlow_fc88e98d-0752-49b3-b705-b0ed9fcbf9e5">
+        <di:waypoint x="1279" y="263"/>
+        <di:waypoint x="1324" y="263"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1257" y="238" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1f58847e-84c1-4595-941d-eceef3867420_di" bpmnElement="SequenceFlow_1f58847e-84c1-4595-941d-eceef3867420">
+        <di:waypoint x="1404" y="263"/>
+        <di:waypoint x="1459" y="263"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1387" y="238" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_fb436ff2-e9bb-4e8b-ae85-cf1622d7bcc7_di" bpmnElement="SequenceFlow_fb436ff2-e9bb-4e8b-ae85-cf1622d7bcc7">
+        <di:waypoint x="1529" y="385"/>
+        <di:waypoint x="1599" y="385"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1519" y="360" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_2213d91e-0602-49e2-a123-c9c400c9a77d_di" bpmnElement="SequenceFlow_2213d91e-0602-49e2-a123-c9c400c9a77d">
+        <di:waypoint x="1669" y="385"/>
+        <di:waypoint x="1726" y="385"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1653" y="360" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_fc5ad346-8abf-4507-83fb-35b378ba1364_di" bpmnElement="SequenceFlow_fc5ad346-8abf-4507-83fb-35b378ba1364">
+        <di:waypoint x="1669" y="263"/>
+        <di:waypoint x="1726" y="263"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1653" y="238" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_dd245f5b-c833-49a9-a5d2-d0997a4231f5_di" bpmnElement="SequenceFlow_dd245f5b-c833-49a9-a5d2-d0997a4231f5">
+        <di:waypoint x="1380" y="303"/>
+        <di:waypoint x="1380" y="385"/>
+        <di:waypoint x="1459" y="385"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1350" y="334" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_062247c2-0915-4ac0-aed5-17b488898dcb_di" bpmnElement="SequenceFlow_062247c2-0915-4ac0-aed5-17b488898dcb">
+        <di:waypoint x="1529" y="263"/>
+        <di:waypoint x="1599" y="263"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1519" y="238" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1wt2shf_di" bpmnElement="SequenceFlow_1wt2shf">
+        <di:waypoint x="1797" y="328"/>
+        <di:waypoint x="1852" y="328"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

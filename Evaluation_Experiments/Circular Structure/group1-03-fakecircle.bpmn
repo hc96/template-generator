@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:stars="https://some-company/schema/bpmn/stars" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" name="StartBlock" scenarioName="test-02">
+      <bpmn2:outgoing>SequenceFlow_06qnmt9</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <stars:lectureBlock id="LectureBlock_1rdokkb" name="LectureBlock">
+      <bpmn2:incoming>SequenceFlow_06qnmt9</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0n0sg9d</bpmn2:outgoing>
+    </stars:lectureBlock>
+    <stars:lectureBlock id="LectureBlock_0fd9777" name="LectureBlock II">
+      <bpmn2:incoming>SequenceFlow_1yuqauk</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1bzypoa</bpmn2:outgoing>
+    </stars:lectureBlock>
+    <bpmn2:sequenceFlow id="SequenceFlow_06qnmt9" sourceRef="StartEvent_1" targetRef="LectureBlock_1rdokkb"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0n0sg9d" sourceRef="LectureBlock_1rdokkb" targetRef="LearningQuestion_183swt6"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_00dtkvb" sourceRef="LearningQuestion_183swt6" targetRef="DecisionFork_1ufg5tb"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1yuqauk" sourceRef="DecisionFork_1ufg5tb" targetRef="LectureBlock_0fd9777"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0hu4nkg" sourceRef="DecisionFork_1ufg5tb" targetRef="SurveyQuestion_04af86p"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1bzypoa" sourceRef="LectureBlock_0fd9777" targetRef="PauseBlock_0vm3i4y"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0fvz9zp" sourceRef="PauseBlock_0vm3i4y" targetRef="SurveyQuestion_04af86p"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1kqcogc" sourceRef="SurveyQuestion_04af86p" targetRef="PresentResult_0f5re8w"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0wou00w" sourceRef="PresentResult_0f5re8w" targetRef="EndEvent_0hb6bow"/>
+    <stars:decisionFork id="DecisionFork_1ufg5tb">
+      <bpmn2:incoming>SequenceFlow_00dtkvb</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1yuqauk</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_0hu4nkg</bpmn2:outgoing>
+    </stars:decisionFork>
+    <stars:singleChoiceSurveyQuestion id="SurveyQuestion_04af86p" name="SingleChoiceSurveyQuestion" choices="[{&quot;choiceID&quot;:&quot;00001_MC4yNzU3MDk0&quot;,&quot;choiceText&quot;:&quot;&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00002_MC4yMjEzNTE1&quot;,&quot;choiceText&quot;:&quot;&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;}]">
+      <bpmn2:incoming>SequenceFlow_0hu4nkg</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_0fvz9zp</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1kqcogc</bpmn2:outgoing>
+    </stars:singleChoiceSurveyQuestion>
+    <stars:singleChoiceLearningQuestion id="LearningQuestion_183swt6" name="SingleChoiceLearningQuestion" choices="[{&quot;choiceID&quot;:&quot;00001_MC4xMTAyNjgw&quot;,&quot;choiceText&quot;:&quot;&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00002_MC40MzAzNzE0&quot;,&quot;choiceText&quot;:&quot;&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;}]">
+      <bpmn2:incoming>SequenceFlow_0n0sg9d</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_00dtkvb</bpmn2:outgoing>
+    </stars:singleChoiceLearningQuestion>
+    <stars:pauseBlock id="PauseBlock_0vm3i4y" name="PauseBlock">
+      <bpmn2:incoming>SequenceFlow_1bzypoa</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0fvz9zp</bpmn2:outgoing>
+    </stars:pauseBlock>
+    <stars:presentResult id="PresentResult_0f5re8w" name="PresentResult" functionBlocks="SurveyQuestion_04af86p">
+      <bpmn2:incoming>SequenceFlow_1kqcogc</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0wou00w</bpmn2:outgoing>
+    </stars:presentResult>
+    <bpmn2:endEvent id="EndEvent_0hb6bow" name="EndBlock">
+      <bpmn2:incoming>SequenceFlow_0wou00w</bpmn2:incoming>
+    </bpmn2:endEvent>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="258" y="332" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="251" y="375" width="51" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="LectureBlock_1rdokkb_di" bpmnElement="LectureBlock_1rdokkb">
+        <dc:Bounds x="375" y="315" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="378" y="392" width="64" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DecisionFork_1ufg5tb_di" bpmnElement="DecisionFork_1ufg5tb">
+        <dc:Bounds x="700" y="310" width="80" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="LectureBlock_0fd9777_di" bpmnElement="LectureBlock_0fd9777">
+        <dc:Bounds x="805" y="185" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="804" y="262" width="73" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SingleChoiceSurveyQuestion_195d14w_di" bpmnElement="SurveyQuestion_04af86p">
+        <dc:Bounds x="925" y="435" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="919" y="512" width="83" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SingleChoiceLearningQuestion_06s1rk4_di" bpmnElement="LearningQuestion_183swt6">
+        <dc:Bounds x="535" y="315" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="527" y="392" width="87" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PauseBlock_0vm3i4y_di" bpmnElement="PauseBlock_0vm3i4y">
+        <dc:Bounds x="945" y="185" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="950" y="161" width="59" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PresentResult_0f5re8w_di" bpmnElement="PresentResult_0f5re8w">
+        <dc:Bounds x="1070" y="430" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1075" y="517" width="70" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0hb6bow_di" bpmnElement="EndEvent_0hb6bow">
+        <dc:Bounds x="1222" y="452" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1217" y="495" width="47" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_06qnmt9_di" bpmnElement="SequenceFlow_06qnmt9">
+        <di:waypoint x="294" y="350"/>
+        <di:waypoint x="375" y="350"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0n0sg9d_di" bpmnElement="SequenceFlow_0n0sg9d">
+        <di:waypoint x="445" y="350"/>
+        <di:waypoint x="535" y="350"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_00dtkvb_di" bpmnElement="SequenceFlow_00dtkvb">
+        <di:waypoint x="605" y="350"/>
+        <di:waypoint x="700" y="350"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1yuqauk_di" bpmnElement="SequenceFlow_1yuqauk">
+        <di:waypoint x="740" y="310"/>
+        <di:waypoint x="740" y="220"/>
+        <di:waypoint x="805" y="220"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0hu4nkg_di" bpmnElement="SequenceFlow_0hu4nkg">
+        <di:waypoint x="740" y="390"/>
+        <di:waypoint x="740" y="470"/>
+        <di:waypoint x="925" y="470"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1bzypoa_di" bpmnElement="SequenceFlow_1bzypoa">
+        <di:waypoint x="875" y="220"/>
+        <di:waypoint x="945" y="220"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0fvz9zp_di" bpmnElement="SequenceFlow_0fvz9zp">
+        <di:waypoint x="960" y="255"/>
+        <di:waypoint x="960" y="435"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1kqcogc_di" bpmnElement="SequenceFlow_1kqcogc">
+        <di:waypoint x="995" y="470"/>
+        <di:waypoint x="1070" y="470"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0wou00w_di" bpmnElement="SequenceFlow_0wou00w">
+        <di:waypoint x="1150" y="470"/>
+        <di:waypoint x="1222" y="470"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

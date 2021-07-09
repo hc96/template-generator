@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:stars="https://some-company/schema/bpmn/stars" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" name="StartBlock" scenarioName="Lecture with interactive learning questions">
+      <bpmn2:outgoing>SequenceFlow_11k1inv</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <stars:andFork id="AndFork_0wus3nf">
+      <bpmn2:incoming>SequenceFlow_13xfgfp</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0k0bmor</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_1xpjtkx</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_18v3gqn</bpmn2:outgoing>
+    </stars:andFork>
+    <stars:andFork id="AndFork_0kyj4ma">
+      <bpmn2:incoming>SequenceFlow_1xnl057</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0j5iphu</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_11pwl03</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_0um6ecd</bpmn2:outgoing>
+    </stars:andFork>
+    <stars:andFork id="AndFork_0y6ruog">
+      <bpmn2:incoming>SequenceFlow_0tg8d9u</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_14kuygy</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_11wg83e</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_0rpboot</bpmn2:outgoing>
+    </stars:andFork>
+    <bpmn2:sequenceFlow id="SequenceFlow_11k1inv" sourceRef="StartEvent_1" targetRef="LectureBlock_0q1t9bl"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0k0bmor" sourceRef="AndFork_0wus3nf" targetRef="SingleChoiceLearningQuestion_1ty1max"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1xpjtkx" sourceRef="AndFork_0wus3nf" targetRef="MultipleChoiceLearningQuestion_0u356fa"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_18v3gqn" sourceRef="AndFork_0wus3nf" targetRef="FreetextLearningQuestion_1q3wap7"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0pjewuh" sourceRef="MultipleChoiceLearningQuestion_0u356fa" targetRef="LectureBlock_0upeb0h"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0pa1zah" sourceRef="FreetextLearningQuestion_1q3wap7" targetRef="LectureBlock_0upeb0h"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0cgl92b" sourceRef="SingleChoiceLearningQuestion_1ty1max" targetRef="LectureBlock_0upeb0h"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_13xfgfp" sourceRef="LectureBlock_1dzweie" targetRef="AndFork_0wus3nf"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1xnl057" sourceRef="LectureBlock_0q1t9bl" targetRef="AndFork_0kyj4ma"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0j5iphu" sourceRef="AndFork_0kyj4ma" targetRef="MultipleChoiceLearningQuestion_0nip8vk"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_14kuygy" sourceRef="AndFork_0y6ruog" targetRef="LearningQuestion_1j3bo4z"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0tg8d9u" sourceRef="LectureBlock_0upeb0h" targetRef="AndFork_0y6ruog"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_11wg83e" sourceRef="AndFork_0y6ruog" targetRef="SingleChoiceLearningQuestion_0beo6zw"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0u3a9qc" sourceRef="SingleChoiceLearningQuestion_0beo6zw" targetRef="LectureBlock_1blghlm"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0rhkbcj" sourceRef="LectureBlock_1blghlm" targetRef="EndEvent_1j6mukl"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_046empx" sourceRef="LearningQuestion_1j3bo4z" targetRef="LectureBlock_1blghlm"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0rpboot" sourceRef="AndFork_0y6ruog" targetRef="LearningQuestion_0tycr41"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1w014p2" sourceRef="LearningQuestion_0tycr41" targetRef="LectureBlock_1blghlm"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1oqrekk" sourceRef="MultipleChoiceLearningQuestion_0nip8vk" targetRef="LectureBlock_1dzweie"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_11pwl03" sourceRef="AndFork_0kyj4ma" targetRef="LearningQuestion_1jgmojx"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0r9ukjj" sourceRef="LearningQuestion_1jgmojx" targetRef="LectureBlock_1dzweie"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0um6ecd" sourceRef="AndFork_0kyj4ma" targetRef="LearningQuestion_0wtzv4z"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1t74w2u" sourceRef="LearningQuestion_0wtzv4z" targetRef="LectureBlock_1dzweie"/>
+    <stars:singleChoiceLearningQuestion id="SingleChoiceLearningQuestion_1ty1max" name="SingleChoiceLearningQuestion II" choices="[{&quot;choiceID&quot;:&quot;00001_MC4xNDU4NTM2&quot;,&quot;choiceText&quot;:&quot;Rome&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00002_MC45ODY3Njc5&quot;,&quot;choiceText&quot;:&quot;Venice&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00003_MC44MzMwNDEy&quot;,&quot;choiceText&quot;:&quot;Milan&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00004_MC41MzQwOTIz&quot;,&quot;choiceText&quot;:&quot;Turin&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;}]" questionText="What is the capital of Italy?">
+      <bpmn2:incoming>SequenceFlow_0k0bmor</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0cgl92b</bpmn2:outgoing>
+    </stars:singleChoiceLearningQuestion>
+    <stars:singleChoiceLearningQuestion id="SingleChoiceLearningQuestion_0beo6zw" name="SingleChoiceLearningQuestion III" choices="[{&quot;choiceID&quot;:&quot;00001_MC43MzU4NjEy&quot;,&quot;choiceText&quot;:&quot;Sydney&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00002_MC40NzA3Nzcw&quot;,&quot;choiceText&quot;:&quot;Canberra&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00003_MC42MjQ3NDUx&quot;,&quot;choiceText&quot;:&quot;Brisbane&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00004_MC42MTkwMDc1&quot;,&quot;choiceText&quot;:&quot;Melbourne&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;}]" questionText="What is the capital of Australia?">
+      <bpmn2:incoming>SequenceFlow_11wg83e</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0u3a9qc</bpmn2:outgoing>
+    </stars:singleChoiceLearningQuestion>
+    <stars:singleChoiceLearningQuestion id="LearningQuestion_0wtzv4z" name="SingleChoiceLearningQuestion" choices="[{&quot;choiceID&quot;:&quot;00001_MC4yNzQ5MzUz&quot;,&quot;choiceText&quot;:&quot;Bonn&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00002_MC43NzE2NTc5&quot;,&quot;choiceText&quot;:&quot;Berlin&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00003_MC42ODMzODA3&quot;,&quot;choiceText&quot;:&quot;Munich&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00004_MC41Mjg4MDky&quot;,&quot;choiceText&quot;:&quot;Cologne&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;}]" questionText="What is the capital of Germany?">
+      <bpmn2:incoming>SequenceFlow_0um6ecd</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1t74w2u</bpmn2:outgoing>
+    </stars:singleChoiceLearningQuestion>
+    <stars:multipleChoiceLearningQuestion id="MultipleChoiceLearningQuestion_0u356fa" name="MultipleChoiceLearningQuestion II" choices="[{&quot;choiceID&quot;:&quot;00001_MC41NzE2Nzk1&quot;,&quot;choiceText&quot;:&quot;Rome&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00002_MC43MjM4NDM3&quot;,&quot;choiceText&quot;:&quot;Venice&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00003_MC45NDExMzM3&quot;,&quot;choiceText&quot;:&quot;Milan&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00004_MC45OTMwNzkz&quot;,&quot;choiceText&quot;:&quot;Turin&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;}]" questionText="What is not the capital of Italy?">
+      <bpmn2:incoming>SequenceFlow_1xpjtkx</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0pjewuh</bpmn2:outgoing>
+    </stars:multipleChoiceLearningQuestion>
+    <stars:multipleChoiceLearningQuestion id="LearningQuestion_1j3bo4z" name="MultipleChoiceLearningQuestion III" choices="[{&quot;choiceID&quot;:&quot;00001_MC42NjgxODY0&quot;,&quot;choiceText&quot;:&quot;Sydney&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00002_MC41MTExMzcy&quot;,&quot;choiceText&quot;:&quot;Canberra&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00003_MC4yMDQyMDk1&quot;,&quot;choiceText&quot;:&quot;Brisbane&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00004_MC4xMTIyODk0&quot;,&quot;choiceText&quot;:&quot;Melbourne&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;}]" questionText="Which cities are not the capital of Australia?">
+      <bpmn2:incoming>SequenceFlow_14kuygy</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_046empx</bpmn2:outgoing>
+    </stars:multipleChoiceLearningQuestion>
+    <stars:multipleChoiceLearningQuestion id="MultipleChoiceLearningQuestion_0nip8vk" name="MultipleChoiceLearningQuestion" choices="[{&quot;choiceID&quot;:&quot;00001_MC42OTk5MzAx&quot;,&quot;choiceText&quot;:&quot;Bonn&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00002_MC45NDA2ODQ3&quot;,&quot;choiceText&quot;:&quot;Berlin&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00003_MC4wMTIwNTI1&quot;,&quot;choiceText&quot;:&quot;Munich&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00004_MC4wMzE1MDcw&quot;,&quot;choiceText&quot;:&quot;Cologne&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;}]" questionText="What is not the capital of Germany?">
+      <bpmn2:incoming>SequenceFlow_0j5iphu</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1oqrekk</bpmn2:outgoing>
+    </stars:multipleChoiceLearningQuestion>
+    <stars:freetextLearningQuestion id="FreetextLearningQuestion_1q3wap7" name="FreetextLearningQuestion II" correctText="Rome" questionText="What is the capital of Italy?">
+      <bpmn2:incoming>SequenceFlow_18v3gqn</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0pa1zah</bpmn2:outgoing>
+    </stars:freetextLearningQuestion>
+    <stars:freetextLearningQuestion id="LearningQuestion_0tycr41" name="FreetextLearningQuestion III" correctText="Canberra" questionText="What is the capital of Australia?">
+      <bpmn2:incoming>SequenceFlow_0rpboot</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1w014p2</bpmn2:outgoing>
+    </stars:freetextLearningQuestion>
+    <stars:freetextLearningQuestion id="LearningQuestion_1jgmojx" name="FreetextLearningQuestion" correctText="Berlin" questionText="What is the capital of Germany?">
+      <bpmn2:incoming>SequenceFlow_11pwl03</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0r9ukjj</bpmn2:outgoing>
+    </stars:freetextLearningQuestion>
+    <bpmn2:endEvent id="EndEvent_1j6mukl" name="EndBlock">
+      <bpmn2:incoming>SequenceFlow_0rhkbcj</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <stars:lectureBlock id="LectureBlock_1dzweie" name="First topic of the Lecture">
+      <bpmn2:incoming>SequenceFlow_1oqrekk</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_0r9ukjj</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_1t74w2u</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_13xfgfp</bpmn2:outgoing>
+    </stars:lectureBlock>
+    <stars:lectureBlock id="LectureBlock_0q1t9bl" name="Introduction to the Lecture">
+      <bpmn2:incoming>SequenceFlow_11k1inv</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1xnl057</bpmn2:outgoing>
+    </stars:lectureBlock>
+    <stars:lectureBlock id="LectureBlock_0upeb0h" name="Second topic of the Lecture">
+      <bpmn2:incoming>SequenceFlow_0cgl92b</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_0pa1zah</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_0pjewuh</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0tg8d9u</bpmn2:outgoing>
+    </stars:lectureBlock>
+    <stars:lectureBlock id="LectureBlock_1blghlm" name="Summary of the Lecture">
+      <bpmn2:incoming>SequenceFlow_0u3a9qc</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_046empx</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_1w014p2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0rhkbcj</bpmn2:outgoing>
+    </stars:lectureBlock>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="-498" y="240" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-505" y="283" width="51" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="AndFork_0wus3nf_di" bpmnElement="AndFork_0wus3nf">
+        <dc:Bounds x="390" y="218" width="80" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SingleChoiceLearningQuestion_1ty1max_di" bpmnElement="SingleChoiceLearningQuestion_1ty1max">
+        <dc:Bounds x="535" y="65" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="527" y="142" width="87" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="MultipleChoiceLearningQuestion_0u356fa_di" bpmnElement="MultipleChoiceLearningQuestion_0u356fa">
+        <dc:Bounds x="535" y="223" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="528" y="300" width="85" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="FreetextLearningQuestion_1q3wap7_di" bpmnElement="FreetextLearningQuestion_1q3wap7">
+        <dc:Bounds x="535" y="395" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="528" y="472" width="84" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1j6mukl_di" bpmnElement="EndEvent_1j6mukl">
+        <dc:Bounds x="1502" y="240" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1497" y="283" width="47" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="LectureBlock_1dzweie_di" bpmnElement="LectureBlock_1dzweie">
+        <dc:Bounds x="225" y="223" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="221" y="300" width="79" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="LectureBlock_0q1t9bl_di" bpmnElement="LectureBlock_0q1t9bl">
+        <dc:Bounds x="-365" y="223" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-374" y="300" width="89" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="AndFork_0kyj4ma_di" bpmnElement="AndFork_0kyj4ma">
+        <dc:Bounds x="-190" y="218" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-195" y="188" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="AndFork_0y6ruog_di" bpmnElement="AndFork_0y6ruog">
+        <dc:Bounds x="900" y="218" width="80" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="LectureBlock_0upeb0h_di" bpmnElement="LectureBlock_0upeb0h">
+        <dc:Bounds x="755" y="223" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="752" y="300" width="77" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SingleChoiceLearningQuestion_0beo6zw_di" bpmnElement="SingleChoiceLearningQuestion_0beo6zw">
+        <dc:Bounds x="1045" y="65" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1039" y="142" width="84" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="LectureBlock_1blghlm_di" bpmnElement="LectureBlock_1blghlm">
+        <dc:Bounds x="1295" y="223" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1291" y="300" width="78" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="MultipleChoiceLearningQuestion_1esyptz_di" bpmnElement="LearningQuestion_1j3bo4z">
+        <dc:Bounds x="1045" y="223" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1037" y="300" width="87" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="FreetextLearningQuestion_1svyxqh_di" bpmnElement="LearningQuestion_0tycr41">
+        <dc:Bounds x="1045" y="395" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1038" y="472" width="84" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="MultipleChoiceLearningQuestion_0nip8vk_di" bpmnElement="MultipleChoiceLearningQuestion_0nip8vk">
+        <dc:Bounds x="-35" y="223" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-42" y="300" width="85" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="FreetextLearningQuestion_01m8ja3_di" bpmnElement="LearningQuestion_1jgmojx">
+        <dc:Bounds x="-35" y="395" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-42" y="472" width="84" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SingleChoiceLearningQuestion_1tiowm7_di" bpmnElement="LearningQuestion_0wtzv4z">
+        <dc:Bounds x="-35" y="65" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-43" y="142" width="87" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_11k1inv_di" bpmnElement="SequenceFlow_11k1inv">
+        <di:waypoint x="-462" y="258"/>
+        <di:waypoint x="-365" y="258"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="69" y="233" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0k0bmor_di" bpmnElement="SequenceFlow_0k0bmor">
+        <di:waypoint x="430" y="218"/>
+        <di:waypoint x="430" y="100"/>
+        <di:waypoint x="535" y="100"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1xpjtkx_di" bpmnElement="SequenceFlow_1xpjtkx">
+        <di:waypoint x="470" y="258"/>
+        <di:waypoint x="535" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_18v3gqn_di" bpmnElement="SequenceFlow_18v3gqn">
+        <di:waypoint x="430" y="298"/>
+        <di:waypoint x="430" y="430"/>
+        <di:waypoint x="535" y="430"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0pjewuh_di" bpmnElement="SequenceFlow_0pjewuh">
+        <di:waypoint x="605" y="258"/>
+        <di:waypoint x="755" y="258"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="940" y="233" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0pa1zah_di" bpmnElement="SequenceFlow_0pa1zah">
+        <di:waypoint x="605" y="430"/>
+        <di:waypoint x="684" y="430"/>
+        <di:waypoint x="684" y="258"/>
+        <di:waypoint x="755" y="258"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="654" y="334" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0cgl92b_di" bpmnElement="SequenceFlow_0cgl92b">
+        <di:waypoint x="605" y="100"/>
+        <di:waypoint x="684" y="100"/>
+        <di:waypoint x="684" y="258"/>
+        <di:waypoint x="755" y="258"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="654" y="169" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_13xfgfp_di" bpmnElement="SequenceFlow_13xfgfp">
+        <di:waypoint x="295" y="258"/>
+        <di:waypoint x="390" y="258"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="298" y="233" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1xnl057_di" bpmnElement="SequenceFlow_1xnl057">
+        <di:waypoint x="-295" y="258"/>
+        <di:waypoint x="-190" y="258"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-287" y="233" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0j5iphu_di" bpmnElement="SequenceFlow_0j5iphu">
+        <di:waypoint x="-110" y="258"/>
+        <di:waypoint x="-35" y="258"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-120" y="233" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_14kuygy_di" bpmnElement="SequenceFlow_14kuygy">
+        <di:waypoint x="980" y="258"/>
+        <di:waypoint x="1045" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0tg8d9u_di" bpmnElement="SequenceFlow_0tg8d9u">
+        <di:waypoint x="825" y="258"/>
+        <di:waypoint x="900" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_11wg83e_di" bpmnElement="SequenceFlow_11wg83e">
+        <di:waypoint x="940" y="218"/>
+        <di:waypoint x="940" y="100"/>
+        <di:waypoint x="1045" y="100"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0u3a9qc_di" bpmnElement="SequenceFlow_0u3a9qc">
+        <di:waypoint x="1115" y="100"/>
+        <di:waypoint x="1190" y="100"/>
+        <di:waypoint x="1190" y="258"/>
+        <di:waypoint x="1295" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0rhkbcj_di" bpmnElement="SequenceFlow_0rhkbcj">
+        <di:waypoint x="1365" y="258"/>
+        <di:waypoint x="1502" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_046empx_di" bpmnElement="SequenceFlow_046empx">
+        <di:waypoint x="1115" y="258"/>
+        <di:waypoint x="1295" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0rpboot_di" bpmnElement="SequenceFlow_0rpboot">
+        <di:waypoint x="940" y="298"/>
+        <di:waypoint x="940" y="430"/>
+        <di:waypoint x="1045" y="430"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1w014p2_di" bpmnElement="SequenceFlow_1w014p2">
+        <di:waypoint x="1115" y="430"/>
+        <di:waypoint x="1190" y="430"/>
+        <di:waypoint x="1190" y="258"/>
+        <di:waypoint x="1295" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1oqrekk_di" bpmnElement="SequenceFlow_1oqrekk">
+        <di:waypoint x="35" y="258"/>
+        <di:waypoint x="225" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_11pwl03_di" bpmnElement="SequenceFlow_11pwl03">
+        <di:waypoint x="-150" y="298"/>
+        <di:waypoint x="-150" y="430"/>
+        <di:waypoint x="-35" y="430"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0r9ukjj_di" bpmnElement="SequenceFlow_0r9ukjj">
+        <di:waypoint x="35" y="430"/>
+        <di:waypoint x="130" y="430"/>
+        <di:waypoint x="130" y="258"/>
+        <di:waypoint x="225" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0um6ecd_di" bpmnElement="SequenceFlow_0um6ecd">
+        <di:waypoint x="-150" y="218"/>
+        <di:waypoint x="-150" y="100"/>
+        <di:waypoint x="-35" y="100"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-180" y="149" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1t74w2u_di" bpmnElement="SequenceFlow_1t74w2u">
+        <di:waypoint x="35" y="100"/>
+        <di:waypoint x="130" y="100"/>
+        <di:waypoint x="130" y="258"/>
+        <di:waypoint x="225" y="258"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="100" y="169" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

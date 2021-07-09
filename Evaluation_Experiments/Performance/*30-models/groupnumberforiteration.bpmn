@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:stars="https://some-company/schema/bpmn/stars" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1" name="StartBlock" scenarioName="GroupNumberForIteration">
+      <bpmn2:outgoing>SequenceFlow_1n3v21h</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_1n3v21h" sourceRef="StartEvent_1" targetRef="AndFork_1b3ai4j"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_06lcwmj" sourceRef="GroupInteraction_0a4ljp4" targetRef="AndFork_017p7mv"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_062bzri" sourceRef="AndFork_017p7mv" targetRef="PresentMaterial_11myo5l"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0eylooz" sourceRef="AndFork_017p7mv" targetRef="PresentMaterial_0cunqhq"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1l2lfic" sourceRef="PresentMaterial_0cunqhq" targetRef="DecisionFork_0fik8vd"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0fajjds" sourceRef="PresentMaterial_11myo5l" targetRef="DecisionFork_0fik8vd"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0jf1ojz" sourceRef="DecisionFork_0fik8vd" targetRef="GroupInteraction_0a4ljp4"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_116khio" sourceRef="DecisionFork_0fik8vd" targetRef="EndEvent_0buixoj"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1czk7jm" sourceRef="AndFork_017p7mv" targetRef="PresentCountdown_0nlshtm"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1byqhwo" sourceRef="PresentCountdown_0nlshtm" targetRef="DecisionFork_0fik8vd"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_112cz2x" sourceRef="AndFork_017p7mv" targetRef="PresentResult_0ylkrt5"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0bpwyp8" sourceRef="PresentResult_0ylkrt5" targetRef="DecisionFork_0fik8vd"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0nd0tt4" sourceRef="AndFork_1b3ai4j" targetRef="MultipleChoiceLearningQuestion_1xlt05k"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1lgkuat" sourceRef="AndFork_1b3ai4j" targetRef="LearningQuestion_0nxjnqn"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1rt5g8z" sourceRef="MultipleChoiceLearningQuestion_1xlt05k" targetRef="GroupInteraction_0a4ljp4"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_0e8dlni" sourceRef="LearningQuestion_0nxjnqn" targetRef="GroupInteraction_0a4ljp4"/>
+    <stars:andFork id="AndFork_017p7mv">
+      <bpmn2:incoming>SequenceFlow_06lcwmj</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_062bzri</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_0eylooz</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_1czk7jm</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_112cz2x</bpmn2:outgoing>
+    </stars:andFork>
+    <stars:andFork id="AndFork_1b3ai4j">
+      <bpmn2:incoming>SequenceFlow_1n3v21h</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0nd0tt4</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_1lgkuat</bpmn2:outgoing>
+    </stars:andFork>
+    <stars:presentMaterial id="PresentMaterial_11myo5l" name="PresentMaterial" content="Task 1" filter="{&quot;operator&quot;:&quot;Or&quot;,&quot;elements&quot;:[{&quot;negate&quot;:false,&quot;type&quot;:&quot;GroupNumberFunctionBlockIteration&quot;,&quot;groupBuilder&quot;:&quot;GroupInteraction_0a4ljp4&quot;,&quot;functionBlock&quot;:&quot;PresentMaterial_11myo5l&quot;,&quot;value&quot;:&quot;1&quot;,&quot;operator&quot;:null}]}">
+      <bpmn2:incoming>SequenceFlow_062bzri</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0fajjds</bpmn2:outgoing>
+    </stars:presentMaterial>
+    <stars:presentMaterial id="PresentMaterial_0cunqhq" name="PresentMaterial II" content="Task 2" filter="{&quot;operator&quot;:&quot;Or&quot;,&quot;elements&quot;:[{&quot;negate&quot;:false,&quot;type&quot;:&quot;GroupNumberFunctionBlockIteration&quot;,&quot;groupBuilder&quot;:&quot;GroupInteraction_0a4ljp4&quot;,&quot;functionBlock&quot;:&quot;PresentMaterial_0cunqhq&quot;,&quot;value&quot;:&quot;2&quot;,&quot;operator&quot;:null}]}">
+      <bpmn2:incoming>SequenceFlow_0eylooz</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1l2lfic</bpmn2:outgoing>
+    </stars:presentMaterial>
+    <stars:decisionFork id="DecisionFork_0fik8vd">
+      <bpmn2:incoming>SequenceFlow_1l2lfic</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_0fajjds</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_1byqhwo</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_0bpwyp8</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0jf1ojz</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_116khio</bpmn2:outgoing>
+    </stars:decisionFork>
+    <stars:groupBuilder id="GroupInteraction_0a4ljp4" name="GroupBuilder">
+      <bpmn2:incoming>SequenceFlow_0jf1ojz</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_1rt5g8z</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_0e8dlni</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_06lcwmj</bpmn2:outgoing>
+    </stars:groupBuilder>
+    <bpmn2:endEvent id="EndEvent_0buixoj" name="EndBlock">
+      <bpmn2:incoming>SequenceFlow_116khio</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <stars:presentCountdown id="PresentCountdown_0nlshtm" name="PresentCountdown" timeout="60">
+      <bpmn2:incoming>SequenceFlow_1czk7jm</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1byqhwo</bpmn2:outgoing>
+    </stars:presentCountdown>
+    <stars:presentResult id="PresentResult_0ylkrt5" name="PresentResult" functionBlocks="MultipleChoiceLearningQuestion_1xlt05k,LearningQuestion_0nxjnqn">
+      <bpmn2:incoming>SequenceFlow_112cz2x</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0bpwyp8</bpmn2:outgoing>
+    </stars:presentResult>
+    <stars:multipleChoiceLearningQuestion id="MultipleChoiceLearningQuestion_1xlt05k" name="MultipleChoiceLearningQuestion" choices="[{&quot;choiceID&quot;:&quot;00001_MC45NTgwMzQw&quot;,&quot;choiceText&quot;:&quot;A&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00002_MC43ODY0NjU5&quot;,&quot;choiceText&quot;:&quot;B&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00003_MC43ODUxMzg1&quot;,&quot;choiceText&quot;:&quot;A&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00004_MC4yNzU1Mzk4&quot;,&quot;choiceText&quot;:&quot;C&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;}]" questionText="Wähle alle A's">
+      <bpmn2:incoming>SequenceFlow_0nd0tt4</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1rt5g8z</bpmn2:outgoing>
+    </stars:multipleChoiceLearningQuestion>
+    <stars:singleChoiceLearningQuestion id="LearningQuestion_0nxjnqn" name="SingleChoiceLearningQuestion" choices="[{&quot;choiceID&quot;:&quot;00001_MC45OTI3OTgx&quot;,&quot;choiceText&quot;:&quot;A&quot;,&quot;isCorrect&quot;:true,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00002_MC4yODM3MDE0&quot;,&quot;choiceText&quot;:&quot;B&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;},{&quot;choiceID&quot;:&quot;00003_MC4yMjc5MDI2&quot;,&quot;choiceText&quot;:&quot;C&quot;,&quot;isCorrect&quot;:false,&quot;type&quot;:&quot;Choice&quot;}]" questionText="Wähle A">
+      <bpmn2:incoming>SequenceFlow_1lgkuat</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0e8dlni</bpmn2:outgoing>
+    </stars:singleChoiceLearningQuestion>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="-28" y="240" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-35" y="283" width="51" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="AndFork_017p7mv_di" bpmnElement="AndFork_017p7mv">
+        <dc:Bounds x="520" y="218" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="610" y="248" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PresentMaterial_11myo5l_di" bpmnElement="PresentMaterial_11myo5l">
+        <dc:Bounds x="650" y="90" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="651" y="177" width="78" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PresentMaterial_0cunqhq_di" bpmnElement="PresentMaterial_0cunqhq">
+        <dc:Bounds x="650" y="360" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="647" y="447" width="87" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DecisionFork_0fik8vd_di" bpmnElement="DecisionFork_0fik8vd">
+        <dc:Bounds x="880" y="218" width="80" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="GroupBuilder_117aufj_di" bpmnElement="GroupInteraction_0a4ljp4">
+        <dc:Bounds x="370" y="218" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="377" y="308" width="65" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0buixoj_di" bpmnElement="EndEvent_0buixoj">
+        <dc:Bounds x="1062" y="240" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1057" y="283" width="47" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PresentCountdown_0nlshtm_di" bpmnElement="PresentCountdown_0nlshtm">
+        <dc:Bounds x="650" y="540" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="650" y="627" width="80" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="PresentResult_0ylkrt5_di" bpmnElement="PresentResult_0ylkrt5">
+        <dc:Bounds x="650" y="720" width="80" height="80"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="655" y="807" width="70" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="AndFork_1b3ai4j_di" bpmnElement="AndFork_1b3ai4j">
+        <dc:Bounds x="60" y="218" width="80" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="MultipleChoiceLearningQuestion_1xlt05k_di" bpmnElement="MultipleChoiceLearningQuestion_1xlt05k">
+        <dc:Bounds x="175" y="325" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="168" y="402" width="85" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SingleChoiceLearningQuestion_1g1vv12_di" bpmnElement="LearningQuestion_0nxjnqn">
+        <dc:Bounds x="175" y="115" width="70" height="70"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="167" y="192" width="87" height="27"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1n3v21h_di" bpmnElement="SequenceFlow_1n3v21h">
+        <di:waypoint x="8" y="258"/>
+        <di:waypoint x="60" y="258"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="104.00000000000001" y="233" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_06lcwmj_di" bpmnElement="SequenceFlow_06lcwmj">
+        <di:waypoint x="450" y="258"/>
+        <di:waypoint x="520" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_062bzri_di" bpmnElement="SequenceFlow_062bzri">
+        <di:waypoint x="560" y="218"/>
+        <di:waypoint x="560" y="130"/>
+        <di:waypoint x="650" y="130"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0eylooz_di" bpmnElement="SequenceFlow_0eylooz">
+        <di:waypoint x="560" y="298"/>
+        <di:waypoint x="560" y="400"/>
+        <di:waypoint x="650" y="400"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1l2lfic_di" bpmnElement="SequenceFlow_1l2lfic">
+        <di:waypoint x="730" y="400"/>
+        <di:waypoint x="810" y="400"/>
+        <di:waypoint x="810" y="258"/>
+        <di:waypoint x="880" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0fajjds_di" bpmnElement="SequenceFlow_0fajjds">
+        <di:waypoint x="730" y="130"/>
+        <di:waypoint x="810" y="130"/>
+        <di:waypoint x="810" y="258"/>
+        <di:waypoint x="880" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0jf1ojz_di" bpmnElement="SequenceFlow_0jf1ojz">
+        <di:waypoint x="920" y="218"/>
+        <di:waypoint x="920" y="10"/>
+        <di:waypoint x="410" y="10"/>
+        <di:waypoint x="410" y="218"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="620" y="-15" width="90" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_116khio_di" bpmnElement="SequenceFlow_116khio">
+        <di:waypoint x="960" y="258"/>
+        <di:waypoint x="1062" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1czk7jm_di" bpmnElement="SequenceFlow_1czk7jm">
+        <di:waypoint x="560" y="298"/>
+        <di:waypoint x="560" y="580"/>
+        <di:waypoint x="650" y="580"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1byqhwo_di" bpmnElement="SequenceFlow_1byqhwo">
+        <di:waypoint x="730" y="580"/>
+        <di:waypoint x="810" y="580"/>
+        <di:waypoint x="810" y="258"/>
+        <di:waypoint x="880" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_112cz2x_di" bpmnElement="SequenceFlow_112cz2x">
+        <di:waypoint x="560" y="298"/>
+        <di:waypoint x="560" y="760"/>
+        <di:waypoint x="650" y="760"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0bpwyp8_di" bpmnElement="SequenceFlow_0bpwyp8">
+        <di:waypoint x="730" y="760"/>
+        <di:waypoint x="810" y="760"/>
+        <di:waypoint x="810" y="258"/>
+        <di:waypoint x="880" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0nd0tt4_di" bpmnElement="SequenceFlow_0nd0tt4">
+        <di:waypoint x="100" y="298"/>
+        <di:waypoint x="100" y="360"/>
+        <di:waypoint x="175" y="360"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1lgkuat_di" bpmnElement="SequenceFlow_1lgkuat">
+        <di:waypoint x="100" y="218"/>
+        <di:waypoint x="100" y="150"/>
+        <di:waypoint x="175" y="150"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1rt5g8z_di" bpmnElement="SequenceFlow_1rt5g8z">
+        <di:waypoint x="245" y="360"/>
+        <di:waypoint x="320" y="360"/>
+        <di:waypoint x="320" y="258"/>
+        <di:waypoint x="370" y="258"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0e8dlni_di" bpmnElement="SequenceFlow_0e8dlni">
+        <di:waypoint x="245" y="150"/>
+        <di:waypoint x="320" y="150"/>
+        <di:waypoint x="320" y="258"/>
+        <di:waypoint x="370" y="258"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
